@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle De Gastos</title>
+</head>
+
+<body>
+    <form method="POST">
+        <!--essa variavel abaixo, proteje o formulario de ataques do tipo cross site request forje-->
+        {% csrf_token %}
+
+        {{formulario.as_p}}
+        <button type="submit">Salvar</button>
+
+    </form>
+    {% if transacao %}
+    
+    <a href="{% url 'url_delete' transacao.id %}">remover</a>
+
+    {% endif %}
+
+</body>
+
+</html>
